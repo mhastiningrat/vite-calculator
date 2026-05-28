@@ -1,6 +1,6 @@
 import React from "react";
-import Input from "../../component/input";
-import Button from "../../component/Button";
+import Input from "@/components/Input";
+import Button from "@/components/Button";
 
 function Login() {
   return (
