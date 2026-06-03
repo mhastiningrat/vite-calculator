@@ -1,17 +1,19 @@
-import React from "react";
-
-function Button({text}) {
+export default function Button({ children, onClick, variant = 'primary', type = 'button', disabled = false }) {
+  const baseClasses = 'px-4 py-2 rounded font-medium transition-colors'
+  const variants = {
+    primary: 'bg-blue-600 text-white hover:bg-blue-700',
+    secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300',
+    danger: 'bg-red-600 text-white hover:bg-red-700',
+  }
+  
   return (
     <button
-      className="bg-black text-green-300 border-2 border-green-400
-         px-8 py-2 mt-4 rounded-md
-         shadow-[0_0_10px_#00ff00]
-         hover:bg-green-200 hover:border-green-200 hover:text-black
-         transition-all duration-300"
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={`${baseClasses} ${variants[variant]} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
     >
-      {text}
+      {children}
     </button>
-  );
+  )
 }
-
-export default Button;
